@@ -1,65 +1,57 @@
 # Airbnb Multi-City Analysis
 
-What actually makes an Airbnb worth its price? I pulled listings, calendar, and review data for **Dallas, NYC, and Chicago** from Inside Airbnb to find out — and to build something that touches SQL, Python, and Tableau end to end instead of just one of them.
+What actually makes an Airbnb worth its price? To find out, I pulled listing, calendar, and review data for **Dallas, NYC, and Chicago** from Inside Airbnb.
 
-## The questions I'm answering
+## Questions I'm Exploring
 
-1. Does a higher price actually lead to higher guest satisfaction?
-2. What amenities justify a premium?
-3. How much does location affect perceived value?
-4. Which neighborhoods are overpriced?
-5. Which city gives travelers the most value?
-6. What makes a $300/night listing feel worth it?
-7. Are guests more sensitive to price or to review quality?
-8. Does review sentiment explain pricing better than star ratings?
+1. Does a higher price point actually lead to higher guest satisfaction?
+2. Which specific amenities justify a premium?
+3. How much does location drive perceived value?
+4. Which neighborhoods are statistically overpriced?
+5. Which city offers travelers the most bang for their buck?
+6. What makes a \$300/night listing feel like it's actually worth it?
+7. Are guests more sensitive to the price or the quality of reviews?
+8. Does review sentiment predict pricing better than standard star ratings?
 
-## What I've found so far
+## Key Findings So Far
 
-**Price barely predicts satisfaction.** Across all three cities the correlation between price and guest rating is real (p < 0.001) but tiny — r = 0.06 to 0.11, meaning price explains roughly 1% of the variation in how happy guests are. Paying more gets you a slightly better-rated stay, not a meaningfully better one. Whatever actually drives satisfaction, it isn't the price tag.
+**Price is a poor predictor of satisfaction.** Across all three cities, the correlation between price and guest ratings is statistically real (p < 0.001) but incredibly small (r = 0.06 to 0.11). This means price only explains about 1% of the variation in guest happiness. You might get a slightly higher-rated stay by paying more, but not a meaningfully better one. Whatever makes guests happy, it isn't the price tag.
 
-**Naive amenity comparisons lie to you.** A straight average-price comparison said kitchens *lower* your price by ~17%. That's backwards — it's a confound. Most home listings have kitchens, so the "no kitchen" group is mostly hotel rooms, which charge more for reasons that have nothing to do with kitchens. Controlling for room type, city, and listing size in a regression is what actually isolates each amenity's real effect. (Full results landing here once the regression run is done.)
+**Simple amenity comparisons can be misleading.** At first glance, a straight average-price comparison suggested that having a kitchen *decreased* listing prices by ~17%. But this is a classic confound: most homes have kitchens, while the "no kitchen" group is largely made up of hotel rooms that charge higher rates for entirely different reasons. By using regression to control for room type, city, and size, I'm isolating the actual impact of each amenity. (I'll update the full results once the regression run finishes.)
 
-**A quarter of the data has no price or rating at all**, which turned out to be a real pattern, not a bug — mostly inactive or brand-new listings with zero bookings. And about 0.75% of listings are priced absurdly high ($10k+/night) with no reviews to match, consistent with hosts using extreme pricing to quietly delist without deactivating. Both got flagged rather than deleted, so the choice of whether to include them lives in each analysis, not baked into the dataset.
+**Data gaps tell their own story.** About a quarter of the listings had no price or rating data. This wasn't a bug; it mostly represented inactive or brand-new listings with zero bookings. Additionally, roughly 0.75% of listings were priced at absurd levels (\$10k+/night) with no reviews, likely a tactic for hosts to "soft-delist" without deactivating. I’ve flagged these outliers rather than deleting them, keeping the analysis flexible.
 
-## Stack
+## The Stack
 
 - **Python** — pandas, statsmodels, scipy, nltk (VADER sentiment), geopandas
 - **Tableau** — final dashboard
-- **PostgreSQL** — where this started (see note below)
+- **PostgreSQL** — the project's starting point
 
-## Pipeline
+## The Pipeline
 
-```
-scripts/
-├── clean_airbnb_data.py        combines all 3 cities, fixes price/boolean formatting, drops dead columns
-├── parse_amenities.py          amenities text -> boolean flags (has_wifi, has_pool, etc.) + count
-├── score_sentiment.py          VADER sentiment on every review, rolled up to listing level
-├── combine_neighbourhoods.py   merges neighborhood boundary shapes across cities
-├── build_master_dataset.py     joins everything, adds price_per_person + a city-relative value_score
-├── flag_outliers.py            flags (doesn't delete) listings priced above the 99th percentile
-├── q1_price_vs_satisfaction.py
-├── q2_amenities_premium.py
-└── q2b_amenities_regression.py
-```
+My `scripts/` directory handles the heavy lifting:
+- `clean_airbnb_data.py`: Merges cities and cleans formatting.
+- `parse_amenities.py`: Converts text to boolean flags and counts.
+- `score_sentiment.py`: Runs VADER sentiment analysis on every review.
+- `combine_neighbourhoods.py`: Merges geospatial boundary data.
+- `build_master_dataset.py`: Joins all data and calculates value scores.
+- `flag_outliers.py`: Identifies extreme price points.
+- `q1_price_vs_satisfaction.py`, `q2_amenities_premium.py`, etc.: Individual analysis scripts.
 
-Run them in that order. Each one prints its own sanity checks (row counts, null rates, join match rates) so you can see the pipeline actually working, not just trust that it did.
+Each script outputs sanity checks (row counts, null rates, and join match rates) so the process is transparent.
 
-## Data
+## Data Sources
 
-Pulled from [Inside Airbnb](http://insideairbnb.com/get-the-data/) — `listings.csv`, `calendar.csv`, `reviews.csv`, and `neighbourhoods.geojson` for each city.
+Data is sourced from [Inside Airbnb](http://insideairbnb.com/get-the-data/). Because files like the NYC calendar can exceed 700MB, I haven't included full datasets in this repo. You can find schema examples in `data/sample/`. To replicate this, download the raw files into `DataRaw/<City>/` and run the pipeline scripts in order.
 
-The full processed files aren't in this repo — the NYC calendar file alone cleans in at ~700MB, well past what GitHub allows. `data/sample/` has a small slice of each cleaned file so you can see the actual schema without downloading anything. To run the full pipeline yourself: grab the source files from Inside Airbnb, drop them in `DataRaw/<City>/`, and run the scripts above in order.
+## A Note on My Process
 
-## A quick note on process
+This project actually began in Postgres with SQL. Mid-way through, I shifted the cleaning and analysis to Python to increase speed and keep the workflow unified. I think it's important to show that data science isn't always a straight line.
 
-This started as a Postgres + SQL project — you'll see some SQL in the early commit history. Partway through I moved the cleaning and analysis into Python for speed and to keep everything in one place. I'd rather show the real path a project like this actually takes than pretend it was a straight line.
+## Next Steps
 
-## What's left
+- [ ] Analyze Questions 3 through 8
+- [ ] Build the Tableau dashboard
+- [ ] Write the final summary of results
 
-- [ ] Questions 3 through 8
-- [ ] Tableau dashboard
-- [ ] Final write-up of results
-
-## Author
-
-Ben Kim
+**Author:** Ben Kim
