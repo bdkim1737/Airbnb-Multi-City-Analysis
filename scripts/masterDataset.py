@@ -21,5 +21,4 @@ master["rating_z"] = master.groupby("city")["review_scores_rating"].transform(la
 master["value_score"] = master["rating_z"] - master["price_z"]
 
 master.to_csv("DataProcessed/master_listings.csv", index=False)
-print(f"\nsaved master_listings.csv, shape {master.shape}")
 print(master[["price", "review_scores_rating", "avg_sentiment", "value_score"]].describe())

@@ -47,5 +47,3 @@ for filename, table_name in file_map.items():
     )
 
     print(f"Successfully wrote {table_name}")
-
-print("Done!")

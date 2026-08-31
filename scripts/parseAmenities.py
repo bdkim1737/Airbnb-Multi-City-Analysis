@@ -3,7 +3,7 @@ import pandas as pd
 from pathlib import Path
 from collections import Counter
 
-df = pd.read_csv("data/processed/listings_clean.csv")
+df = pd.read_csv("data/listings_clean.csv")
 print(f"loaded {len(df)} listings")
 
 # amenities column is a string that looks like a list, e.g. "['Wifi', 'Kitchen']"
@@ -49,5 +49,5 @@ for col, kw in flags.items():
     print(f"{col}: {df[col].mean()*100:.1f}%")
 
 df = df.drop(columns=["amenities", "amenities_list"])
-df.to_csv("data/processed/listings_with_amenities.csv", index=False)
+df.to_csv("DataProcessed/listings_with_amenities.csv", index=False)
 print(f"\nsaved, shape is {df.shape}")
