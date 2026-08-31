@@ -30,13 +30,13 @@ What actually makes an Airbnb worth its price? To find out, I pulled listing, ca
 ## The Pipeline
 
 My `scripts/` directory handles the heavy lifting:
-- `clean_airbnb_data.py`: Merges cities and cleans formatting.
-- `parse_amenities.py`: Converts text to boolean flags and counts.
-- `score_sentiment.py`: Runs VADER sentiment analysis on every review.
-- `combine_neighbourhoods.py`: Merges geospatial boundary data.
-- `build_master_dataset.py`: Joins all data and calculates value scores.
-- `flag_outliers.py`: Identifies extreme price points.
-- `q1_price_vs_satisfaction.py`, `q2_amenities_premium.py`, etc.: Individual analysis scripts.
+- `CleanAirbnbdata.py`: Merges cities and cleans formatting.
+- `parseAmenities.py`: Converts text to boolean flags and counts.
+- `scoreSentiment.py`: Runs VADER sentiment analysis on every review.
+- `combineNeighbourhoods.py`: Merges geospatial boundary data.
+- `masterDataset.py`: Joins all data and calculates value scores.
+- `outliers.py`: Identifies extreme price points.
+- `priceSatisfaction.py`, `amenitiesResgression.py`, etc.: Individual analysis scripts.
 
 Each script outputs sanity checks (row counts, null rates, and join match rates) so the process is transparent.
 
@@ -46,7 +46,7 @@ Data is sourced from [Inside Airbnb](http://insideairbnb.com/get-the-data/). Bec
 
 ## A Note on My Process
 
-This project actually began in Postgres with SQL. Mid-way through, I shifted the cleaning and analysis to Python to increase speed and keep the workflow unified. I think it's important to show that data science isn't always a straight line.
+This project actually began in Postgres with SQL since I wanted to showcase multiple skillsets. Mid-way through, however, I shifted the cleaning and analysis to Python to increase speed and keep the workflow unified. I think it's important to show that data science isn't always a straight line.
 
 ## Next Steps
 
