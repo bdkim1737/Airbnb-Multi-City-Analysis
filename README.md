@@ -44,6 +44,11 @@ Each script outputs sanity checks (row counts, null rates, and join match rates)
 
 Data is sourced from [Inside Airbnb](http://insideairbnb.com/get-the-data/). Because files like the NYC calendar can exceed 700MB, I haven't included full datasets in this repo. You can find schema examples in `data/sample/`. To replicate this, download the raw files into `DataRaw/<City>/` and run the pipeline scripts in order.
 
+- **listings.csv.gz** — Information about listings and numerical ratings
+- **calendar.csv.gz** — 
+- **reviews.csv.gz** — 
+- **neighbourhoods.geojson** — 
+
 ## A Note on My Process
 
 This project actually began in Postgres with SQL since I wanted to showcase multiple skillsets. Mid-way through, however, I shifted the cleaning and analysis to Python to increase speed and keep the workflow unified. I think it's important to show that data science isn't always a straight line.
