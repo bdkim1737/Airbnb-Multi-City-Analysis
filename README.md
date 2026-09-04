@@ -41,9 +41,4 @@ Data is sourced from [Inside Airbnb](http://insideairbnb.com/get-the-data/). Bec
 
 This project actually began in Postgres with SQL since I wanted to showcase multiple skillsets. Mid-way through, however, I shifted the cleaning and analysis to Python to increase speed and keep the workflow unified. I think it's important to show that data science isn't always a straight line.
 
-## Next Steps
-
-- [ ] Build the Tableau dashboard
-- [ ] Write the final summary of results
-
 **Author:** Ben Kim
