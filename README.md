@@ -21,8 +21,8 @@ I wanted to look past the marketing and see the math. Does paying more actually 
 ### Dallas Neighbourhoods
 ![Dallas](TableauVisuals/DallasNeighbourhoods.png)
 *   **Dallas Wins on Value:** While satisfaction levels are nearly identical across all three cities, Dallas averages \$59.22 per person, compared to NYC’s \$88.60. You’re essentially paying 50% more in New York for the same level of happiness.
-![Price per Person](TableauVisuals/PricePerPersonCity.png)
 ![CityNumbers](TableauVisuals/CityNumbers.png)
+![Price per Person](TableauVisuals/PricePerPersonCity.png)
 *   **The \$300 Secret:** At the \$300/night mark, "Superhost" status is the biggest indicator of a stay feeling "worth it." It matters way more than any individual physical amenity.
 
 #### The Stack & Pipeline
