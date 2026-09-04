@@ -906,6 +906,9 @@
         </metadata-records>
       </connection>
       <aliases enabled='yes' />
+      <column caption='Price Quartile' datatype='string' name='[Calculation_3133924640608256]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [price] &lt;= 115.07 THEN &quot;Q1 (cheapest)&quot;&#13;&#10;ELSEIF [price] &lt;= 185.30 THEN &quot;Q2&quot;&#13;&#10;ELSEIF [price] &lt;= 291.00 THEN &quot;Q3&quot;&#13;&#10;ELSE &quot;Q4 (priciest)&quot;&#13;&#10;END' />
+      </column>
       <column caption='Price Outlier Filter' datatype='boolean' name='[Calculation_5216398258077696]' role='dimension' type='nominal'>
         <calculation class='tableau' formula='NOT[price_outlier]' />
       </column>
@@ -1450,35 +1453,34 @@
             <datasource caption='master_listings' name='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8' />
           </datasources>
           <datasource-dependencies datasource='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8'>
+            <column caption='Price Quartile' datatype='string' name='[Calculation_3133924640608256]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='IF [price] &lt;= 115.07 THEN &quot;Q1 (cheapest)&quot;&#13;&#10;ELSEIF [price] &lt;= 185.30 THEN &quot;Q2&quot;&#13;&#10;ELSEIF [price] &lt;= 291.00 THEN &quot;Q3&quot;&#13;&#10;ELSE &quot;Q4 (priciest)&quot;&#13;&#10;END' />
+            </column>
             <column caption='Price Outlier Filter' datatype='boolean' name='[Calculation_5216398258077696]' role='dimension' type='nominal'>
               <calculation class='tableau' formula='NOT[price_outlier]' />
             </column>
-            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
-            <column caption='Listing Id' datatype='integer' name='[listing_id]' role='dimension' type='ordinal' />
+            <column-instance column='[review_scores_rating]' derivation='Avg' name='[avg:review_scores_rating:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_3133924640608256]' derivation='None' name='[none:Calculation_3133924640608256:nk]' pivot='key' type='nominal' />
             <column-instance column='[Calculation_5216398258077696]' derivation='None' name='[none:Calculation_5216398258077696:nk]' pivot='key' type='nominal' />
-            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
-            <column-instance column='[listing_id]' derivation='None' name='[none:listing_id:ok]' pivot='key' type='ordinal' />
             <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
             <column caption='Price Outlier' datatype='boolean' name='[price_outlier]' role='dimension' type='nominal' />
             <column caption='Review Scores Rating' datatype='real' name='[review_scores_rating]' role='measure' type='quantitative' />
-            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
             <column-instance column='[review_scores_rating]' derivation='Sum' name='[sum:review_scores_rating:qk]' pivot='key' type='quantitative' />
           </datasource-dependencies>
           <filter class='categorical' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]'>
             <groupfilter function='member' level='[none:Calculation_5216398258077696:nk]' member='true' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
           </filter>
-          <filter class='quantitative' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:price:qk]' included-values='non-null' />
-          <filter class='quantitative' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]' included-values='non-null' />
           <slices>
-            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:price:qk]</column>
-            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]</column>
             <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]</column>
           </slices>
           <aggregation value='true' />
         </view>
         <style>
           <style-rule element='axis'>
-            <encoding attr='space' class='0' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]' field-type='quantitative' major-origin='0.0' major-spacing='1.0' max='5.25' min='0.75' range-type='fixed' scope='rows' type='space' />
+            <encoding attr='space' class='0' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]' field-type='quantitative' max='5.0' min='4.5' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_3133924640608256:nk]' value='109' />
           </style-rule>
           <style-rule element='gridline'>
             <format attr='stroke-size' value='0' />
@@ -1497,137 +1499,27 @@
             <mark class='Automatic' />
             <mark-sizing mark-sizing-setting='marks-scaling-off' />
             <encodings>
-              <color column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' />
-              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:listing_id:ok]' />
+              <text column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]' />
             </encodings>
             <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='linear' />
             <style>
               <style-rule element='mark'>
                 <format attr='size' value='0.58171272277832031' />
                 <format attr='mark-transparency' value='60' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
               </style-rule>
             </style>
           </pane>
         </panes>
-        <rows>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]</rows>
-        <cols>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:price:qk]</cols>
+        <rows>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]</rows>
+        <cols>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_3133924640608256:nk]</cols>
       </table>
       <simple-id uuid='{D8EF43FC-F293-4895-B9EF-DC7654C50428}' />
-    </worksheet>
-    <worksheet name='Sheet 7'>
-      <table>
-        <view>
-          <datasources>
-            <datasource caption='master_listings' name='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8' />
-          </datasources>
-          <datasource-dependencies datasource='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8'>
-            <column caption='Price Outlier Filter' datatype='boolean' name='[Calculation_5216398258077696]' role='dimension' type='nominal'>
-              <calculation class='tableau' formula='NOT[price_outlier]' />
-            </column>
-            <column-instance column='[listing_id]' derivation='Avg' name='[avg:listing_id:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[price_per_person]' derivation='Avg' name='[avg:price_per_person:qk]' pivot='key' type='quantitative' />
-            <column-instance column='[review_scores_rating]' derivation='Avg' name='[avg:review_scores_rating:qk]' pivot='key' type='quantitative' />
-            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
-            <column caption='Listing Id' datatype='integer' name='[listing_id]' role='dimension' type='ordinal' />
-            <column-instance column='[Calculation_5216398258077696]' derivation='None' name='[none:Calculation_5216398258077696:nk]' pivot='key' type='nominal' />
-            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
-            <column-instance column='[listing_id]' derivation='None' name='[none:listing_id:ok]' pivot='key' type='ordinal' />
-            <column caption='Price Outlier' datatype='boolean' name='[price_outlier]' role='dimension' type='nominal' />
-            <column caption='Price Per Person' datatype='real' name='[price_per_person]' role='measure' type='quantitative' />
-            <column caption='Review Scores Rating' datatype='real' name='[review_scores_rating]' role='measure' type='quantitative' />
-            <column-instance column='[review_scores_rating]' derivation='Sum' name='[sum:review_scores_rating:qk]' pivot='key' type='quantitative' />
-          </datasource-dependencies>
-          <filter class='quantitative' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]' included-values='non-null' />
-          <filter class='categorical' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]'>
-            <groupfilter function='member' level='[none:Calculation_5216398258077696:nk]' member='true' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
-          </filter>
-          <filter class='quantitative' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]' included-values='non-null' />
-          <slices>
-            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]</column>
-            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]</column>
-            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]</column>
-          </slices>
-          <aggregation value='true' />
-        </view>
-        <style />
-        <panes>
-          <pane selection-relaxation-option='selection-relaxation-allow'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Circle' />
-            <encodings>
-              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:listing_id:ok]' />
-            </encodings>
-            <reference-line axis-column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]' z-order='1' />
-            <style>
-              <style-rule element='mark'>
-                <format attr='size' value='0.25' />
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-                <format attr='mark-transparency' value='144' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:listing_id:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Circle' />
-            <mark-sizing mark-sizing-setting='marks-scaling-off' />
-            <encodings>
-              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:listing_id:ok]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='size' value='0.097955800592899323' />
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-                <format attr='mark-transparency' value='144' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Circle' />
-            <mark-sizing mark-sizing-setting='marks-scaling-off' />
-            <encodings>
-              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:listing_id:ok]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='size' value='0.097955800592899323' />
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-                <format attr='mark-transparency' value='144' />
-              </style-rule>
-            </style>
-          </pane>
-          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]'>
-            <view>
-              <breakdown value='auto' />
-            </view>
-            <mark class='Circle' />
-            <mark-sizing mark-sizing-setting='marks-scaling-off' />
-            <encodings>
-              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:listing_id:ok]' />
-            </encodings>
-            <style>
-              <style-rule element='mark'>
-                <format attr='size' value='0.097955800592899323' />
-                <format attr='mark-labels-cull' value='true' />
-                <format attr='mark-labels-show' value='false' />
-                <format attr='mark-transparency' value='144' />
-              </style-rule>
-            </style>
-          </pane>
-        </panes>
-        <rows>([federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:listing_id:qk] + ([federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk] + [federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]))</rows>
-        <cols>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]</cols>
-      </table>
-      <simple-id uuid='{C8322F6B-453F-4D47-9A9B-B3A21A03B47D}' />
     </worksheet>
     <worksheet name='Top 10 Neighbourhoods'>
       <table>
@@ -1931,7 +1823,7 @@
       </cards>
       <simple-id uuid='{A44D329C-2C43-4B00-8EBB-6AD429E875B2}' />
     </window>
-    <window class='worksheet' name='Rating vs Price'>
+    <window class='worksheet' maximized='true' name='Rating vs Price'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1946,11 +1838,6 @@
           </strip>
           <strip size='2147483647'>
             <card type='rows' />
-          </strip>
-        </edge>
-        <edge name='right'>
-          <strip size='160'>
-            <card pane-specification-id='4' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' type='color' />
           </strip>
         </edge>
       </cards>
@@ -2050,7 +1937,7 @@
       </cards>
       <simple-id uuid='{F6CA5D4D-34D8-47B2-BA91-AF210E7594C7}' />
     </window>
-    <window class='worksheet' maximized='true' name='Bottom 10 Neighbourhoods'>
+    <window class='worksheet' name='Bottom 10 Neighbourhoods'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -2088,29 +1975,6 @@
       </viewpoints>
       <active id='-1' />
       <simple-id uuid='{06B143EF-5172-4601-8089-9A5EFA82069E}' />
-    </window>
-    <window class='worksheet' name='Sheet 7'>
-      <cards>
-        <edge name='left'>
-          <strip size='160'>
-            <card type='pages' />
-            <card type='filters' />
-            <card type='marks' />
-          </strip>
-        </edge>
-        <edge name='top'>
-          <strip size='2147483647'>
-            <card type='columns' />
-          </strip>
-          <strip size='2147483647'>
-            <card type='rows' />
-          </strip>
-          <strip size='31'>
-            <card type='title' />
-          </strip>
-        </edge>
-      </cards>
-      <simple-id uuid='{B34A6D46-F5AD-4832-9D09-78AF30F36F96}' />
     </window>
   </windows>
 </workbook>
