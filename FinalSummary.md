@@ -8,7 +8,7 @@ Does paying more for an Airbnb actually get you a better stay? I set out to answ
 
 Barely. Across all three cities the correlation between price and guest rating is real (p < 0.001 everywhere) but weak — r = 0.082 in Dallas, 0.057 in NYC, 0.113 in Chicago. Price explains roughly 1% of the variation in how happy guests end up. Splitting listings into price quartiles tells the same story more intuitively: average rating climbs gently from 4.68 (cheapest quarter) to 4.79 (priciest quarter) — a real trend, but a small one.
 
-![Rating climbing gently by price quartile](TableauVisuals/PriceQuartile.png)
+![Rating climbing gently by price quartile](TableauVisuals/RatingPrice.png)
 
 **Takeaway:** price tells you almost nothing about whether you'll enjoy your stay.
 
