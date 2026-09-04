@@ -7,6 +7,7 @@ I wanted to look past the marketing and see the math. Does paying more actually 
 
 #### Key Findings
 *   **Price is a terrible predictor of happiness.** Across all three cities, the link between price and guest ratings is tiny. Price only explains about 1% of why a guest leaves a good review. In short: you might get a *slightly* better stay by spending more, but it’s rarely a game-changer.
+![Price vs Rating](TableauVisuals/RatingPrice.png)
 *   **The "Premium" Amenities:** Using a regression model, I isolated which features actually drive prices up. A gym adds the biggest premium (+\$68.76/night), followed by a washer, TV, and hot tub. Interestingly, Wifi adds almost zero value—it’s now a baseline expectation, not a luxury.
 *   **The Neighborhood Tax:** In famous areas like NYC’s Tribeca or Chicago’s Loop, you aren't paying for better features; you’re paying for the zip code. The best actual value? It’s almost always in outer-borough spots like Throgs Neck or Jamaica Estates that tourists usually overlook.
 *   **Dallas Wins on Value:** While satisfaction levels are nearly identical across all three cities, Dallas averages \$54.88 per person, compared to NYC’s \$83.06. You’re essentially paying 50% more in New York for the same level of happiness.
