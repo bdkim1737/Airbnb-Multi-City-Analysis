@@ -1798,7 +1798,7 @@
     </dashboard>
   </dashboards>
   <windows source-height='30'>
-    <window class='worksheet' name='Price per Person by City'>
+    <window class='worksheet' maximized='true' name='Price per Person by City'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1843,7 +1843,7 @@
       </cards>
       <simple-id uuid='{7D36B8BA-78DE-40FA-A816-5046640D42A0}' />
     </window>
-    <window class='worksheet' maximized='true' name='City Numbers'>
+    <window class='worksheet' name='City Numbers'>
       <cards>
         <edge name='left'>
           <strip size='160'>
@@ -1902,7 +1902,7 @@
           </strip>
         </edge>
         <edge name='right'>
-          <strip size='160'>
+          <strip size='300'>
             <card pane-specification-id='0' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:avg_price_residual:qk]' type='color' />
           </strip>
         </edge>
