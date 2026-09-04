@@ -1,0 +1,2116 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20262.26.0603.1643                               -->
+<workbook original-version='18.1' source-build='2026.2.0 (20262.26.0603.1643)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AccessibleZoneTabOrder />
+    <AnimationOnByDefault />
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <MapboxVectorStylesAndLayers />
+    <MarkAnimation />
+    <ObjectModelEncapsulateLegacy />
+    <ObjectModelTableType />
+    <SchemaViewerObjectModel />
+    <SetMembershipControl />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <SpatialFileLayer />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource caption='master_listings' inline='true' name='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='master_listings' name='textscan.13zwkkg0h418lj125lj071mqz8x4'>
+            <connection class='textscan' directory='C:/Users/Ben_Kim1/Documents/AirbnbAnalysis/Airbnb-Multi-City-Analysis/DataProcessed' filename='master_listings.csv' password='' server='' />
+          </named-connection>
+          <named-connection caption='neighbourhoods_combined' name='ogrdirect.116stey1gjjojt19nhap60ftovm1'>
+            <connection class='ogrdirect' directory='C:/Users/Ben_Kim1/Documents/AirbnbAnalysis/Airbnb-Multi-City-Analysis/DataProcessed' filename='neighbourhoods_combined.geojson' password='' server='' tablename='' />
+          </named-connection>
+          <named-connection caption='neighborhood_price_residuals' name='textscan.0hczv2d0jww9231fav1pq0kl1wuq'>
+            <connection class='textscan' directory='C:/Users/Ben_Kim1/Documents/AirbnbAnalysis/Airbnb-Multi-City-Analysis/DataProcessed' filename='neighborhood_price_residuals.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation type='collection'>
+          <relation connection='textscan.13zwkkg0h418lj125lj071mqz8x4' name='master_listings.csv' table='[master_listings#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='integer' name='listing_id' ordinal='0' />
+              <column datatype='string' name='city' ordinal='1' />
+              <column datatype='string' name='room_type' ordinal='2' />
+              <column datatype='string' name='property_type' ordinal='3' />
+              <column datatype='string' name='neighbourhood_cleansed' ordinal='4' />
+              <column datatype='string' name='neighbourhood_group_cleansed' ordinal='5' />
+              <column datatype='integer' name='accommodates' ordinal='6' />
+              <column datatype='real' name='bedrooms' ordinal='7' />
+              <column datatype='real' name='beds' ordinal='8' />
+              <column datatype='real' name='bathrooms' ordinal='9' />
+              <column datatype='real' name='price' ordinal='10' />
+              <column datatype='boolean' name='host_is_superhost' ordinal='11' />
+              <column datatype='string' name='host_response_rate' ordinal='12' />
+              <column datatype='string' name='host_acceptance_rate' ordinal='13' />
+              <column datatype='integer' name='number_of_reviews' ordinal='14' />
+              <column datatype='integer' name='number_of_reviews_ltm' ordinal='15' />
+              <column datatype='real' name='review_scores_rating' ordinal='16' />
+              <column datatype='real' name='review_scores_accuracy' ordinal='17' />
+              <column datatype='real' name='review_scores_cleanliness' ordinal='18' />
+              <column datatype='real' name='review_scores_checkin' ordinal='19' />
+              <column datatype='real' name='review_scores_communication' ordinal='20' />
+              <column datatype='real' name='review_scores_location' ordinal='21' />
+              <column datatype='real' name='review_scores_value' ordinal='22' />
+              <column datatype='real' name='reviews_per_month' ordinal='23' />
+              <column datatype='real' name='latitude' ordinal='24' />
+              <column datatype='real' name='longitude' ordinal='25' />
+              <column datatype='integer' name='amenity_count' ordinal='26' />
+              <column datatype='boolean' name='has_wifi' ordinal='27' />
+              <column datatype='boolean' name='has_kitchen' ordinal='28' />
+              <column datatype='boolean' name='has_ac' ordinal='29' />
+              <column datatype='boolean' name='has_heating' ordinal='30' />
+              <column datatype='boolean' name='has_washer' ordinal='31' />
+              <column datatype='boolean' name='has_dryer' ordinal='32' />
+              <column datatype='boolean' name='has_parking' ordinal='33' />
+              <column datatype='boolean' name='has_pool' ordinal='34' />
+              <column datatype='boolean' name='has_hot_tub' ordinal='35' />
+              <column datatype='boolean' name='has_gym' ordinal='36' />
+              <column datatype='boolean' name='has_workspace' ordinal='37' />
+              <column datatype='boolean' name='has_tv' ordinal='38' />
+              <column datatype='boolean' name='pets_allowed' ordinal='39' />
+              <column datatype='boolean' name='self_checkin' ordinal='40' />
+              <column datatype='real' name='avg_sentiment' ordinal='41' />
+              <column datatype='real' name='review_count_check' ordinal='42' />
+              <column datatype='real' name='price_per_person' ordinal='43' />
+              <column datatype='real' name='price_z' ordinal='44' />
+              <column datatype='real' name='rating_z' ordinal='45' />
+              <column datatype='real' name='value_score' ordinal='46' />
+              <column datatype='boolean' name='price_outlier' ordinal='47' />
+            </columns>
+          </relation>
+          <relation connection='ogrdirect.116stey1gjjojt19nhap60ftovm1' name='neighbourhoods_combined.geojson' table='[neighbourhoods_combined.geojson]' type='table'>
+            <columns>
+              <column datatype='string' name='neighbourhood' ordinal='0' />
+              <column datatype='string' name='neighbourhood_group' ordinal='1' />
+              <column datatype='string' name='city' ordinal='2' />
+              <column datatype='spatial' name='Geometry' ordinal='3' />
+            </columns>
+          </relation>
+          <relation connection='textscan.0hczv2d0jww9231fav1pq0kl1wuq' name='neighborhood_price_residuals.csv' table='[neighborhood_price_residuals#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+              <column datatype='string' name='city' ordinal='0' />
+              <column datatype='string' name='neighbourhood_cleansed' ordinal='1' />
+              <column datatype='real' name='avg_price_residual' ordinal='2' />
+              <column datatype='integer' name='listing_count' ordinal='3' />
+            </columns>
+          </relation>
+        </relation>
+        <cols>
+          <map key='[Geometry]' value='[neighbourhoods_combined.geojson].[Geometry]' />
+          <map key='[accommodates]' value='[master_listings.csv].[accommodates]' />
+          <map key='[amenity_count]' value='[master_listings.csv].[amenity_count]' />
+          <map key='[avg_price_residual]' value='[neighborhood_price_residuals.csv].[avg_price_residual]' />
+          <map key='[avg_sentiment]' value='[master_listings.csv].[avg_sentiment]' />
+          <map key='[bathrooms]' value='[master_listings.csv].[bathrooms]' />
+          <map key='[bedrooms]' value='[master_listings.csv].[bedrooms]' />
+          <map key='[beds]' value='[master_listings.csv].[beds]' />
+          <map key='[city (neighborhood_price_residuals.csv)]' value='[neighborhood_price_residuals.csv].[city]' />
+          <map key='[city (neighbourhoods_combined.geojson)]' value='[neighbourhoods_combined.geojson].[city]' />
+          <map key='[city]' value='[master_listings.csv].[city]' />
+          <map key='[has_ac]' value='[master_listings.csv].[has_ac]' />
+          <map key='[has_dryer]' value='[master_listings.csv].[has_dryer]' />
+          <map key='[has_gym]' value='[master_listings.csv].[has_gym]' />
+          <map key='[has_heating]' value='[master_listings.csv].[has_heating]' />
+          <map key='[has_hot_tub]' value='[master_listings.csv].[has_hot_tub]' />
+          <map key='[has_kitchen]' value='[master_listings.csv].[has_kitchen]' />
+          <map key='[has_parking]' value='[master_listings.csv].[has_parking]' />
+          <map key='[has_pool]' value='[master_listings.csv].[has_pool]' />
+          <map key='[has_tv]' value='[master_listings.csv].[has_tv]' />
+          <map key='[has_washer]' value='[master_listings.csv].[has_washer]' />
+          <map key='[has_wifi]' value='[master_listings.csv].[has_wifi]' />
+          <map key='[has_workspace]' value='[master_listings.csv].[has_workspace]' />
+          <map key='[host_acceptance_rate]' value='[master_listings.csv].[host_acceptance_rate]' />
+          <map key='[host_is_superhost]' value='[master_listings.csv].[host_is_superhost]' />
+          <map key='[host_response_rate]' value='[master_listings.csv].[host_response_rate]' />
+          <map key='[latitude]' value='[master_listings.csv].[latitude]' />
+          <map key='[listing_count]' value='[neighborhood_price_residuals.csv].[listing_count]' />
+          <map key='[listing_id]' value='[master_listings.csv].[listing_id]' />
+          <map key='[longitude]' value='[master_listings.csv].[longitude]' />
+          <map key='[neighbourhood]' value='[neighbourhoods_combined.geojson].[neighbourhood]' />
+          <map key='[neighbourhood_cleansed (neighborhood_price_residuals.csv)]' value='[neighborhood_price_residuals.csv].[neighbourhood_cleansed]' />
+          <map key='[neighbourhood_cleansed]' value='[master_listings.csv].[neighbourhood_cleansed]' />
+          <map key='[neighbourhood_group]' value='[neighbourhoods_combined.geojson].[neighbourhood_group]' />
+          <map key='[neighbourhood_group_cleansed]' value='[master_listings.csv].[neighbourhood_group_cleansed]' />
+          <map key='[number_of_reviews]' value='[master_listings.csv].[number_of_reviews]' />
+          <map key='[number_of_reviews_ltm]' value='[master_listings.csv].[number_of_reviews_ltm]' />
+          <map key='[pets_allowed]' value='[master_listings.csv].[pets_allowed]' />
+          <map key='[price]' value='[master_listings.csv].[price]' />
+          <map key='[price_outlier]' value='[master_listings.csv].[price_outlier]' />
+          <map key='[price_per_person]' value='[master_listings.csv].[price_per_person]' />
+          <map key='[price_z]' value='[master_listings.csv].[price_z]' />
+          <map key='[property_type]' value='[master_listings.csv].[property_type]' />
+          <map key='[rating_z]' value='[master_listings.csv].[rating_z]' />
+          <map key='[review_count_check]' value='[master_listings.csv].[review_count_check]' />
+          <map key='[review_scores_accuracy]' value='[master_listings.csv].[review_scores_accuracy]' />
+          <map key='[review_scores_checkin]' value='[master_listings.csv].[review_scores_checkin]' />
+          <map key='[review_scores_cleanliness]' value='[master_listings.csv].[review_scores_cleanliness]' />
+          <map key='[review_scores_communication]' value='[master_listings.csv].[review_scores_communication]' />
+          <map key='[review_scores_location]' value='[master_listings.csv].[review_scores_location]' />
+          <map key='[review_scores_rating]' value='[master_listings.csv].[review_scores_rating]' />
+          <map key='[review_scores_value]' value='[master_listings.csv].[review_scores_value]' />
+          <map key='[reviews_per_month]' value='[master_listings.csv].[reviews_per_month]' />
+          <map key='[room_type]' value='[master_listings.csv].[room_type]' />
+          <map key='[self_checkin]' value='[master_listings.csv].[self_checkin]' />
+          <map key='[value_score]' value='[master_listings.csv].[value_score]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[neighborhood_price_residuals.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>listing_id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[listing_id]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>listing_id</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>room_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[room_type]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>room_type</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>property_type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[property_type]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>property_type</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neighbourhood_cleansed</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[neighbourhood_cleansed]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>neighbourhood_cleansed</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neighbourhood_group_cleansed</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[neighbourhood_group_cleansed]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>neighbourhood_group_cleansed</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>accommodates</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[accommodates]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>accommodates</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bedrooms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[bedrooms]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>bedrooms</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>beds</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[beds]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>beds</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>bathrooms</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[bathrooms]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>bathrooms</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>price</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>host_is_superhost</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[host_is_superhost]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>host_is_superhost</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>host_response_rate</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[host_response_rate]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>host_response_rate</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>host_acceptance_rate</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[host_acceptance_rate]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>host_acceptance_rate</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>number_of_reviews</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[number_of_reviews]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>number_of_reviews</remote-alias>
+            <ordinal>14</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>number_of_reviews_ltm</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[number_of_reviews_ltm]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>number_of_reviews_ltm</remote-alias>
+            <ordinal>15</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>review_scores_rating</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[review_scores_rating]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>review_scores_rating</remote-alias>
+            <ordinal>16</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>review_scores_accuracy</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[review_scores_accuracy]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>review_scores_accuracy</remote-alias>
+            <ordinal>17</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>review_scores_cleanliness</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[review_scores_cleanliness]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>review_scores_cleanliness</remote-alias>
+            <ordinal>18</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>review_scores_checkin</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[review_scores_checkin]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>review_scores_checkin</remote-alias>
+            <ordinal>19</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>review_scores_communication</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[review_scores_communication]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>review_scores_communication</remote-alias>
+            <ordinal>20</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>review_scores_location</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[review_scores_location]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>review_scores_location</remote-alias>
+            <ordinal>21</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>review_scores_value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[review_scores_value]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>review_scores_value</remote-alias>
+            <ordinal>22</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>reviews_per_month</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[reviews_per_month]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>reviews_per_month</remote-alias>
+            <ordinal>23</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>latitude</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[latitude]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>latitude</remote-alias>
+            <ordinal>24</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>longitude</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[longitude]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>longitude</remote-alias>
+            <ordinal>25</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>amenity_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[amenity_count]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>amenity_count</remote-alias>
+            <ordinal>26</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_wifi</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_wifi]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_wifi</remote-alias>
+            <ordinal>27</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_kitchen</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_kitchen]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_kitchen</remote-alias>
+            <ordinal>28</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_ac</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_ac]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_ac</remote-alias>
+            <ordinal>29</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_heating</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_heating]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_heating</remote-alias>
+            <ordinal>30</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_washer</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_washer]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_washer</remote-alias>
+            <ordinal>31</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_dryer</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_dryer]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_dryer</remote-alias>
+            <ordinal>32</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_parking</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_parking]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_parking</remote-alias>
+            <ordinal>33</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_pool</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_pool]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_pool</remote-alias>
+            <ordinal>34</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_hot_tub</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_hot_tub]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_hot_tub</remote-alias>
+            <ordinal>35</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_gym</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_gym]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_gym</remote-alias>
+            <ordinal>36</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_workspace</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_workspace]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_workspace</remote-alias>
+            <ordinal>37</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>has_tv</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[has_tv]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>has_tv</remote-alias>
+            <ordinal>38</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pets_allowed</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[pets_allowed]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>pets_allowed</remote-alias>
+            <ordinal>39</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>self_checkin</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[self_checkin]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>self_checkin</remote-alias>
+            <ordinal>40</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_sentiment</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_sentiment]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>avg_sentiment</remote-alias>
+            <ordinal>41</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>review_count_check</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[review_count_check]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>review_count_check</remote-alias>
+            <ordinal>42</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_per_person</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price_per_person]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>price_per_person</remote-alias>
+            <ordinal>43</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_z</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[price_z]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>price_z</remote-alias>
+            <ordinal>44</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>rating_z</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[rating_z]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>rating_z</remote-alias>
+            <ordinal>45</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>value_score</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[value_score]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>value_score</remote-alias>
+            <ordinal>46</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>price_outlier</remote-name>
+            <remote-type>11</remote-type>
+            <local-name>[price_outlier]</local-name>
+            <parent-name>[master_listings.csv]</parent-name>
+            <remote-alias>price_outlier</remote-alias>
+            <ordinal>47</ordinal>
+            <local-type>boolean</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neighbourhood</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[neighbourhood]</local-name>
+            <parent-name>[neighbourhoods_combined.geojson]</parent-name>
+            <remote-alias>neighbourhood</remote-alias>
+            <ordinal>48</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <object-id>[neighbourhoods_combined.geojson_7E0A73ACC7ED47A596FE0E86232BC168]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neighbourhood_group</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[neighbourhood_group]</local-name>
+            <parent-name>[neighbourhoods_combined.geojson]</parent-name>
+            <remote-alias>neighbourhood_group</remote-alias>
+            <ordinal>49</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <object-id>[neighbourhoods_combined.geojson_7E0A73ACC7ED47A596FE0E86232BC168]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city (neighbourhoods_combined.geojson)]</local-name>
+            <parent-name>[neighbourhoods_combined.geojson]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>50</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='binary' />
+            <object-id>[neighbourhoods_combined.geojson_7E0A73ACC7ED47A596FE0E86232BC168]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Geometry</remote-name>
+            <remote-type>8</remote-type>
+            <local-name>[Geometry]</local-name>
+            <parent-name>[neighbourhoods_combined.geojson]</parent-name>
+            <remote-alias>Geometry</remote-alias>
+            <ordinal>51</ordinal>
+            <local-type>spatial</local-type>
+            <aggregation>Collect</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[neighbourhoods_combined.geojson_7E0A73ACC7ED47A596FE0E86232BC168]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>city</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[city (neighborhood_price_residuals.csv)]</local-name>
+            <parent-name>[neighborhood_price_residuals.csv]</parent-name>
+            <remote-alias>city</remote-alias>
+            <ordinal>52</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[neighborhood_price_residuals.csv_BD061E19F7C648FDA1C0E84BBA5EAF2D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>neighbourhood_cleansed</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[neighbourhood_cleansed (neighborhood_price_residuals.csv)]</local-name>
+            <parent-name>[neighborhood_price_residuals.csv]</parent-name>
+            <remote-alias>neighbourhood_cleansed</remote-alias>
+            <ordinal>53</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+            <object-id>[neighborhood_price_residuals.csv_BD061E19F7C648FDA1C0E84BBA5EAF2D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>avg_price_residual</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[avg_price_residual]</local-name>
+            <parent-name>[neighborhood_price_residuals.csv]</parent-name>
+            <remote-alias>avg_price_residual</remote-alias>
+            <ordinal>54</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[neighborhood_price_residuals.csv_BD061E19F7C648FDA1C0E84BBA5EAF2D]</object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>listing_count</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[listing_count]</local-name>
+            <parent-name>[neighborhood_price_residuals.csv]</parent-name>
+            <remote-alias>listing_count</remote-alias>
+            <ordinal>55</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <object-id>[neighborhood_price_residuals.csv_BD061E19F7C648FDA1C0E84BBA5EAF2D]</object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Price Outlier Filter' datatype='boolean' name='[Calculation_5216398258077696]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='NOT[price_outlier]' />
+      </column>
+      <column caption='Price Band' datatype='string' name='[Calculation_5216398258352129]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [price] &gt;= 275 AND [price] &lt;= 325 THEN &quot;In Band&quot; ELSE &quot;Outside&quot; END' />
+      </column>
+      <column caption='$300 Field' datatype='boolean' name='[Calculation_5216398532206594]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='[price] &gt;= 275 AND [price] &lt;= 325' />
+      </column>
+      <column caption='Worth It' datatype='string' name='[Calculation_5216398532485123]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [review_scores_rating] &gt;= 4.88 THEN &quot;Worth It&quot; ELSE &quot;Not Worth It&quot; END' />
+      </column>
+      <column caption='Superhost (1/0)' datatype='integer' name='[Calculation_5216398532829188]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='IF [host_is_superhost] THEN 1 ELSE 0 END' />
+      </column>
+      <column caption='master_listings.csv' datatype='table' name='[__tableau_internal_object_id__].[master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A]' role='measure' type='quantitative' />
+      <column caption='neighborhood_price_residuals.csv' datatype='table' name='[__tableau_internal_object_id__].[neighborhood_price_residuals.csv_BD061E19F7C648FDA1C0E84BBA5EAF2D]' role='measure' type='quantitative' />
+      <column caption='neighbourhoods_combined.geojson' datatype='table' name='[__tableau_internal_object_id__].[neighbourhoods_combined.geojson_7E0A73ACC7ED47A596FE0E86232BC168]' role='measure' type='quantitative' />
+      <column caption='Accommodates' datatype='integer' name='[accommodates]' role='measure' type='quantitative' />
+      <column caption='Amenity Count' datatype='integer' name='[amenity_count]' role='measure' type='quantitative' />
+      <column caption='Avg Price Residual' datatype='real' name='[avg_price_residual]' role='measure' type='quantitative' />
+      <column caption='Avg Sentiment' datatype='real' name='[avg_sentiment]' role='measure' type='quantitative' />
+      <column caption='Bathrooms' datatype='real' name='[bathrooms]' role='measure' type='quantitative' />
+      <column caption='Bedrooms' datatype='real' name='[bedrooms]' role='measure' type='quantitative' />
+      <column caption='Beds' datatype='real' name='[beds]' role='measure' type='quantitative' />
+      <column caption='City (Neighborhood Price Residuals.Csv)' datatype='string' name='[city (neighborhood_price_residuals.csv)]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='City (Neighbourhoods Combined.Geojson)' datatype='string' name='[city (neighbourhoods_combined.geojson)]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+      <column caption='Has Ac' datatype='boolean' name='[has_ac]' role='dimension' type='nominal' />
+      <column caption='Has Dryer' datatype='boolean' name='[has_dryer]' role='dimension' type='nominal' />
+      <column caption='Has Gym' datatype='boolean' name='[has_gym]' role='dimension' type='nominal' />
+      <column caption='Has Heating' datatype='boolean' name='[has_heating]' role='dimension' type='nominal' />
+      <column caption='Has Hot Tub' datatype='boolean' name='[has_hot_tub]' role='dimension' type='nominal' />
+      <column caption='Has Kitchen' datatype='boolean' name='[has_kitchen]' role='dimension' type='nominal' />
+      <column caption='Has Parking' datatype='boolean' name='[has_parking]' role='dimension' type='nominal' />
+      <column caption='Has Pool' datatype='boolean' name='[has_pool]' role='dimension' type='nominal' />
+      <column caption='Has Tv' datatype='boolean' name='[has_tv]' role='dimension' type='nominal' />
+      <column caption='Has Washer' datatype='boolean' name='[has_washer]' role='dimension' type='nominal' />
+      <column caption='Has Wifi' datatype='boolean' name='[has_wifi]' role='dimension' type='nominal' />
+      <column caption='Has Workspace' datatype='boolean' name='[has_workspace]' role='dimension' type='nominal' />
+      <column caption='Host Acceptance Rate' datatype='string' name='[host_acceptance_rate]' role='dimension' type='nominal' />
+      <column caption='Host Is Superhost' datatype='boolean' name='[host_is_superhost]' role='dimension' type='nominal' />
+      <column caption='Host Response Rate' datatype='string' name='[host_response_rate]' role='dimension' type='nominal' />
+      <column aggregation='Avg' caption='Latitude' datatype='real' name='[latitude]' role='measure' semantic-role='[Geographical].[Latitude]' type='quantitative' />
+      <column caption='Listing Count' datatype='integer' name='[listing_count]' role='measure' type='quantitative' />
+      <column caption='Listing Id' datatype='integer' name='[listing_id]' role='dimension' type='ordinal' />
+      <column aggregation='Avg' caption='Longitude' datatype='real' name='[longitude]' role='measure' semantic-role='[Geographical].[Longitude]' type='quantitative' />
+      <column caption='Neighbourhood' datatype='string' name='[neighbourhood]' role='dimension' type='nominal' />
+      <column caption='Neighbourhood Cleansed (Neighborhood Price Residuals.Csv)' datatype='string' name='[neighbourhood_cleansed (neighborhood_price_residuals.csv)]' role='dimension' type='nominal' />
+      <column caption='Neighbourhood Cleansed' datatype='string' name='[neighbourhood_cleansed]' role='dimension' type='nominal' />
+      <column caption='Neighbourhood Group' datatype='string' name='[neighbourhood_group]' role='dimension' type='nominal' />
+      <column caption='Neighbourhood Group Cleansed' datatype='string' name='[neighbourhood_group_cleansed]' role='dimension' type='nominal' />
+      <column caption='Number Of Reviews' datatype='integer' name='[number_of_reviews]' role='measure' type='quantitative' />
+      <column caption='Number Of Reviews Ltm' datatype='integer' name='[number_of_reviews_ltm]' role='measure' type='quantitative' />
+      <column caption='Pets Allowed' datatype='boolean' name='[pets_allowed]' role='dimension' type='nominal' />
+      <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+      <column caption='Price Outlier' datatype='boolean' name='[price_outlier]' role='dimension' type='nominal' />
+      <column caption='Price Per Person' datatype='real' name='[price_per_person]' role='measure' type='quantitative' />
+      <column caption='Price Z' datatype='real' name='[price_z]' role='measure' type='quantitative' />
+      <column caption='Property Type' datatype='string' name='[property_type]' role='dimension' type='nominal' />
+      <column caption='Rating Z' datatype='real' name='[rating_z]' role='measure' type='quantitative' />
+      <column caption='Review Count Check' datatype='real' name='[review_count_check]' role='measure' type='quantitative' />
+      <column caption='Review Scores Accuracy' datatype='real' name='[review_scores_accuracy]' role='measure' type='quantitative' />
+      <column caption='Review Scores Checkin' datatype='real' name='[review_scores_checkin]' role='measure' type='quantitative' />
+      <column caption='Review Scores Cleanliness' datatype='real' name='[review_scores_cleanliness]' role='measure' type='quantitative' />
+      <column caption='Review Scores Communication' datatype='real' name='[review_scores_communication]' role='measure' type='quantitative' />
+      <column caption='Review Scores Location' datatype='real' name='[review_scores_location]' role='measure' type='quantitative' />
+      <column caption='Review Scores Rating' datatype='real' name='[review_scores_rating]' role='measure' type='quantitative' />
+      <column caption='Review Scores Value' datatype='real' name='[review_scores_value]' role='measure' type='quantitative' />
+      <column caption='Reviews Per Month' datatype='real' name='[reviews_per_month]' role='dimension' type='quantitative' />
+      <column caption='Room Type' datatype='string' name='[room_type]' role='dimension' type='nominal' />
+      <column caption='Self Checkin' datatype='boolean' name='[self_checkin]' role='dimension' type='nominal' />
+      <column caption='Value Score' datatype='real' name='[value_score]' role='measure' type='quantitative' />
+      <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+      <layout dim-ordering='alphabetic' measure-ordering='alphabetic' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:city:nk]' type='palette'>
+            <map to='#26897e'>
+              <bucket>&quot;Dallas&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Chicago&quot;</bucket>
+            </map>
+            <map to='#fcc66d'>
+              <bucket>&quot;NYC&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <object-graph>
+        <objects>
+          <object caption='master_listings.csv' id='master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A'>
+            <properties context=''>
+              <relation connection='textscan.13zwkkg0h418lj125lj071mqz8x4' name='master_listings.csv' table='[master_listings#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='integer' name='listing_id' ordinal='0' />
+                  <column datatype='string' name='city' ordinal='1' />
+                  <column datatype='string' name='room_type' ordinal='2' />
+                  <column datatype='string' name='property_type' ordinal='3' />
+                  <column datatype='string' name='neighbourhood_cleansed' ordinal='4' />
+                  <column datatype='string' name='neighbourhood_group_cleansed' ordinal='5' />
+                  <column datatype='integer' name='accommodates' ordinal='6' />
+                  <column datatype='real' name='bedrooms' ordinal='7' />
+                  <column datatype='real' name='beds' ordinal='8' />
+                  <column datatype='real' name='bathrooms' ordinal='9' />
+                  <column datatype='real' name='price' ordinal='10' />
+                  <column datatype='boolean' name='host_is_superhost' ordinal='11' />
+                  <column datatype='string' name='host_response_rate' ordinal='12' />
+                  <column datatype='string' name='host_acceptance_rate' ordinal='13' />
+                  <column datatype='integer' name='number_of_reviews' ordinal='14' />
+                  <column datatype='integer' name='number_of_reviews_ltm' ordinal='15' />
+                  <column datatype='real' name='review_scores_rating' ordinal='16' />
+                  <column datatype='real' name='review_scores_accuracy' ordinal='17' />
+                  <column datatype='real' name='review_scores_cleanliness' ordinal='18' />
+                  <column datatype='real' name='review_scores_checkin' ordinal='19' />
+                  <column datatype='real' name='review_scores_communication' ordinal='20' />
+                  <column datatype='real' name='review_scores_location' ordinal='21' />
+                  <column datatype='real' name='review_scores_value' ordinal='22' />
+                  <column datatype='real' name='reviews_per_month' ordinal='23' />
+                  <column datatype='real' name='latitude' ordinal='24' />
+                  <column datatype='real' name='longitude' ordinal='25' />
+                  <column datatype='integer' name='amenity_count' ordinal='26' />
+                  <column datatype='boolean' name='has_wifi' ordinal='27' />
+                  <column datatype='boolean' name='has_kitchen' ordinal='28' />
+                  <column datatype='boolean' name='has_ac' ordinal='29' />
+                  <column datatype='boolean' name='has_heating' ordinal='30' />
+                  <column datatype='boolean' name='has_washer' ordinal='31' />
+                  <column datatype='boolean' name='has_dryer' ordinal='32' />
+                  <column datatype='boolean' name='has_parking' ordinal='33' />
+                  <column datatype='boolean' name='has_pool' ordinal='34' />
+                  <column datatype='boolean' name='has_hot_tub' ordinal='35' />
+                  <column datatype='boolean' name='has_gym' ordinal='36' />
+                  <column datatype='boolean' name='has_workspace' ordinal='37' />
+                  <column datatype='boolean' name='has_tv' ordinal='38' />
+                  <column datatype='boolean' name='pets_allowed' ordinal='39' />
+                  <column datatype='boolean' name='self_checkin' ordinal='40' />
+                  <column datatype='real' name='avg_sentiment' ordinal='41' />
+                  <column datatype='real' name='review_count_check' ordinal='42' />
+                  <column datatype='real' name='price_per_person' ordinal='43' />
+                  <column datatype='real' name='price_z' ordinal='44' />
+                  <column datatype='real' name='rating_z' ordinal='45' />
+                  <column datatype='real' name='value_score' ordinal='46' />
+                  <column datatype='boolean' name='price_outlier' ordinal='47' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='neighborhood_price_residuals.csv' id='neighborhood_price_residuals.csv_BD061E19F7C648FDA1C0E84BBA5EAF2D'>
+            <properties context=''>
+              <relation connection='textscan.0hczv2d0jww9231fav1pq0kl1wuq' name='neighborhood_price_residuals.csv' table='[neighborhood_price_residuals#csv]' type='table'>
+                <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+                  <column datatype='string' name='city' ordinal='0' />
+                  <column datatype='string' name='neighbourhood_cleansed' ordinal='1' />
+                  <column datatype='real' name='avg_price_residual' ordinal='2' />
+                  <column datatype='integer' name='listing_count' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+          <object caption='neighbourhoods_combined.geojson' id='neighbourhoods_combined.geojson_7E0A73ACC7ED47A596FE0E86232BC168'>
+            <properties context=''>
+              <relation connection='ogrdirect.116stey1gjjojt19nhap60ftovm1' name='neighbourhoods_combined.geojson' table='[neighbourhoods_combined.geojson]' type='table'>
+                <columns>
+                  <column datatype='string' name='neighbourhood' ordinal='0' />
+                  <column datatype='string' name='neighbourhood_group' ordinal='1' />
+                  <column datatype='string' name='city' ordinal='2' />
+                  <column datatype='spatial' name='Geometry' ordinal='3' />
+                </columns>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+        <relationships>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[city (neighbourhoods_combined.geojson)]' />
+                <expression op='[city (neighborhood_price_residuals.csv)]' />
+              </expression>
+              <expression op='='>
+                <expression op='[neighbourhood]' />
+                <expression op='[neighbourhood_cleansed (neighborhood_price_residuals.csv)]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='neighbourhoods_combined.geojson_7E0A73ACC7ED47A596FE0E86232BC168' />
+            <second-end-point object-id='neighborhood_price_residuals.csv_BD061E19F7C648FDA1C0E84BBA5EAF2D' />
+          </relationship>
+          <relationship>
+            <expression op='AND'>
+              <expression op='='>
+                <expression op='[city]' />
+                <expression op='[city (neighbourhoods_combined.geojson)]' />
+              </expression>
+              <expression op='='>
+                <expression op='[neighbourhood_cleansed]' />
+                <expression op='[neighbourhood]' />
+              </expression>
+            </expression>
+            <first-end-point object-id='master_listings.csv_2BB56ADEB8AA405FA9E3E060599C8C3A' />
+            <second-end-point object-id='neighbourhoods_combined.geojson_7E0A73ACC7ED47A596FE0E86232BC168' />
+          </relationship>
+        </relationships>
+      </object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <actions>
+    <action caption='Highlight 1 (generated)' name='[Action1_A67DFD708A53491AAB9460BB62D19A7A]'>
+      <activation auto-clear='true' type='on-select' />
+      <source type='sheet' worksheet='City Numbers' />
+      <command command='tsc:brush'>
+        <param name='field-captions' value='City' />
+        <param name='target' value='City Numbers' />
+      </command>
+    </action>
+    <action caption='Highlight 2 (generated)' name='[Action2_3E380BD4C95F47849234578A62AC35D1]'>
+      <activation auto-clear='true' type='on-select' />
+      <source dashboard='Cross-City Overview' type='sheet' />
+      <command command='tsc:brush'>
+        <param name='field-captions' value='City' />
+        <param name='target' value='Cross-City Overview' />
+      </command>
+    </action>
+  </actions>
+  <worksheets>
+    <worksheet name='Bottom 10 Neighbourhoods'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='master_listings' name='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8'>
+            <column-instance column='[avg_price_residual]' derivation='Avg' name='[avg:avg_price_residual:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Price Residual' datatype='real' name='[avg_price_residual]' role='measure' type='quantitative' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Neighbourhood Cleansed (Neighborhood Price Residuals.Csv)' datatype='string' name='[neighbourhood_cleansed (neighborhood_price_residuals.csv)]' role='dimension' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_cleansed (neighborhood_price_residuals.csv)]' derivation='None' name='[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]' pivot='key' type='nominal' />
+            <column-instance column='[avg_price_residual]' derivation='Sum' name='[sum:avg_price_residual:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Chicago&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Dallas&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;NYC&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]'>
+            <groupfilter count='10' end='bottom' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='AVG([avg_price_residual])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:avg_price_residual:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]</column>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:avg_price_residual:qk]' palette='blue_10_0' reverse='true' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:avg_price_residual:qk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]</rows>
+        <cols>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:avg_price_residual:qk]</cols>
+      </table>
+      <simple-id uuid='{CDADAD05-685E-43D9-B12B-9DE025BB1255}' />
+    </worksheet>
+    <worksheet name='City Numbers'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='master_listings' name='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8'>
+            <column caption='Price Outlier Filter' datatype='boolean' name='[Calculation_5216398258077696]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='NOT[price_outlier]' />
+            </column>
+            <column-instance column='[price]' derivation='Avg' name='[avg:price:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[review_scores_rating]' derivation='Avg' name='[avg:review_scores_rating:qk]' pivot='key' type='quantitative' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[listing_id]' derivation='Count' name='[cnt:listing_id:qk]' pivot='key' type='quantitative' />
+            <column caption='Listing Id' datatype='integer' name='[listing_id]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_5216398258077696]' derivation='None' name='[none:Calculation_5216398258077696:nk]' pivot='key' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column caption='Price Outlier' datatype='boolean' name='[price_outlier]' role='dimension' type='nominal' />
+            <column caption='Review Scores Rating' datatype='real' name='[review_scores_rating]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]'>
+            <groupfilter function='member' level='[none:Calculation_5216398258077696:nk]' member='true' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <manual-sort column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;NYC&quot;</bucket>
+              <bucket>&quot;Chicago&quot;</bucket>
+              <bucket>&quot;Dallas&quot;</bucket>
+              <bucket>%all%</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]' field-type='quantitative' max='5.0151885488647325' min='4.0' range-type='fixed' scope='cols' type='space' />
+            <format attr='title' class='0' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[cnt:listing_id:qk]' scope='cols' value='# of Listings' />
+          </style-rule>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[cnt:listing_id:qk]' value='n#,##0,.0K;-#,##0,.0K' />
+            <format attr='text-format' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price:qk]' value='n#,##0.0;-#,##0.0' />
+            <format attr='text-format' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]' value='n#,##0.00;-#,##0.00' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price:qk]' />
+              <color column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]' />
+              <color column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' />
+              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[cnt:listing_id:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[cnt:listing_id:qk]' />
+              <color column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]</rows>
+        <cols>([federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[cnt:listing_id:qk] + ([federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price:qk] + [federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]))</cols>
+      </table>
+      <simple-id uuid='{915FECA2-FEF1-4B04-8A6E-58E9A26A116A}' />
+    </worksheet>
+    <worksheet name='Neighbourhood Map'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run>&lt;Sheet Name&gt; ZOOM</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='master_listings' name='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8'>
+            <column datatype='spatial' name='[Geometry]' role='measure' type='nominal' />
+            <column-instance column='[avg_price_residual]' derivation='Avg' name='[avg:avg_price_residual:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Price Residual' datatype='real' name='[avg_price_residual]' role='measure' type='quantitative' />
+            <column-instance column='[Geometry]' derivation='Collect' name='[clct:Geometry:nk]' pivot='key' type='nominal' />
+            <column caption='Neighbourhood Cleansed (Neighborhood Price Residuals.Csv)' datatype='string' name='[neighbourhood_cleansed (neighborhood_price_residuals.csv)]' role='dimension' type='nominal' />
+            <column-instance column='[neighbourhood_cleansed (neighborhood_price_residuals.csv)]' derivation='None' name='[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[Longitude (generated)]' field-type='quantitative' max='-8189166.6166100781' min='-8315688.7280136384' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[Latitude (generated)]' field-type='quantitative' max='5006007.9589526551' min='4926376.4936618786' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:avg_price_residual:qk]' />
+              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[clct:Geometry:nk]' />
+              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]' />
+              <geometry column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[clct:Geometry:nk]' />
+            </encodings>
+            <customized-tooltip>
+              <formatted-text>
+                <run fontcolor='#757575'><![CDATA[Neighbourhood: <[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]>]]></run>
+                <run>Æ&#10;</run>
+                <run fontcolor='#757575'><![CDATA[Average Price Residual:	<[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:avg_price_residual:qk]>]]></run>
+              </formatted-text>
+            </customized-tooltip>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='auto' />
+                <format attr='font-size' value='8' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[Latitude (generated)]</rows>
+        <cols>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{6527DC97-8014-4D15-8DDF-E1196D545049}' />
+    </worksheet>
+    <worksheet name='Price per Person by City'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='master_listings' name='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8'>
+            <column caption='Price Outlier Filter' datatype='boolean' name='[Calculation_5216398258077696]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='NOT[price_outlier]' />
+            </column>
+            <column-instance column='[price_per_person]' derivation='Avg' name='[avg:price_per_person:qk]' pivot='key' type='quantitative' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column-instance column='[Calculation_5216398258077696]' derivation='None' name='[none:Calculation_5216398258077696:nk]' pivot='key' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column caption='Price Outlier' datatype='boolean' name='[price_outlier]' role='dimension' type='nominal' />
+            <column caption='Price Per Person' datatype='real' name='[price_per_person]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]'>
+            <groupfilter function='member' level='[none:Calculation_5216398258077696:nk]' member='true' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]' shelf='columns' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' />
+              <text column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]</rows>
+        <cols>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]</cols>
+      </table>
+      <simple-id uuid='{97F4C553-6906-4C8D-9EFE-D34E3C3558E8}' />
+    </worksheet>
+    <worksheet name='Rating vs Price'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='master_listings' name='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8'>
+            <column caption='Price Outlier Filter' datatype='boolean' name='[Calculation_5216398258077696]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='NOT[price_outlier]' />
+            </column>
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Listing Id' datatype='integer' name='[listing_id]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_5216398258077696]' derivation='None' name='[none:Calculation_5216398258077696:nk]' pivot='key' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[listing_id]' derivation='None' name='[none:listing_id:ok]' pivot='key' type='ordinal' />
+            <column caption='Price' datatype='real' name='[price]' role='measure' type='quantitative' />
+            <column caption='Price Outlier' datatype='boolean' name='[price_outlier]' role='dimension' type='nominal' />
+            <column caption='Review Scores Rating' datatype='real' name='[review_scores_rating]' role='measure' type='quantitative' />
+            <column-instance column='[price]' derivation='Sum' name='[sum:price:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[review_scores_rating]' derivation='Sum' name='[sum:review_scores_rating:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]'>
+            <groupfilter function='member' level='[none:Calculation_5216398258077696:nk]' member='true' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:price:qk]' included-values='non-null' />
+          <filter class='quantitative' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:price:qk]</column>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]</column>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]' field-type='quantitative' major-origin='0.0' major-spacing='1.0' max='5.25' min='0.75' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='gridline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+          <style-rule element='zeroline'>
+            <format attr='stroke-size' value='0' />
+            <format attr='line-visibility' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' />
+              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:listing_id:ok]' />
+            </encodings>
+            <trendline enable-confidence-bands='false' enable-instant-analytics='true' enabled='true' exclude-color='false' exclude-intercept='false' fit='linear' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.58171272277832031' />
+                <format attr='mark-transparency' value='60' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]</rows>
+        <cols>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:price:qk]</cols>
+      </table>
+      <simple-id uuid='{D8EF43FC-F293-4895-B9EF-DC7654C50428}' />
+    </worksheet>
+    <worksheet name='Sheet 7'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='master_listings' name='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8'>
+            <column caption='Price Outlier Filter' datatype='boolean' name='[Calculation_5216398258077696]' role='dimension' type='nominal'>
+              <calculation class='tableau' formula='NOT[price_outlier]' />
+            </column>
+            <column-instance column='[listing_id]' derivation='Avg' name='[avg:listing_id:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[price_per_person]' derivation='Avg' name='[avg:price_per_person:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[review_scores_rating]' derivation='Avg' name='[avg:review_scores_rating:qk]' pivot='key' type='quantitative' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Listing Id' datatype='integer' name='[listing_id]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_5216398258077696]' derivation='None' name='[none:Calculation_5216398258077696:nk]' pivot='key' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[listing_id]' derivation='None' name='[none:listing_id:ok]' pivot='key' type='ordinal' />
+            <column caption='Price Outlier' datatype='boolean' name='[price_outlier]' role='dimension' type='nominal' />
+            <column caption='Price Per Person' datatype='real' name='[price_per_person]' role='measure' type='quantitative' />
+            <column caption='Review Scores Rating' datatype='real' name='[review_scores_rating]' role='measure' type='quantitative' />
+            <column-instance column='[review_scores_rating]' derivation='Sum' name='[sum:review_scores_rating:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]' included-values='non-null' />
+          <filter class='categorical' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]'>
+            <groupfilter function='member' level='[none:Calculation_5216398258077696:nk]' member='true' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='quantitative' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]' included-values='non-null' />
+          <slices>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:Calculation_5216398258077696:nk]</column>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]</column>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:review_scores_rating:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <encodings>
+              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:listing_id:ok]' />
+            </encodings>
+            <reference-line axis-column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]' boxplot-mark-exclusion='false' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.25' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-transparency' value='144' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:listing_id:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:listing_id:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.097955800592899323' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-transparency' value='144' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:listing_id:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.097955800592899323' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-transparency' value='144' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <lod column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:listing_id:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.097955800592899323' />
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+                <format attr='mark-transparency' value='144' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:listing_id:qk] + ([federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:price_per_person:qk] + [federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:review_scores_rating:qk]))</rows>
+        <cols>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]</cols>
+      </table>
+      <simple-id uuid='{C8322F6B-453F-4D47-9A9B-B3A21A03B47D}' />
+    </worksheet>
+    <worksheet name='Top 10 Neighbourhoods'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='master_listings' name='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0xgetqc0ntlh5q1c6k5bg0c32qm8'>
+            <column-instance column='[avg_price_residual]' derivation='Avg' name='[avg:avg_price_residual:qk]' pivot='key' type='quantitative' />
+            <column caption='Avg Price Residual' datatype='real' name='[avg_price_residual]' role='measure' type='quantitative' />
+            <column caption='City' datatype='string' name='[city]' role='dimension' semantic-role='[City].[Name]' type='nominal' />
+            <column caption='Neighbourhood Cleansed (Neighborhood Price Residuals.Csv)' datatype='string' name='[neighbourhood_cleansed (neighborhood_price_residuals.csv)]' role='dimension' type='nominal' />
+            <column-instance column='[city]' derivation='None' name='[none:city:nk]' pivot='key' type='nominal' />
+            <column-instance column='[neighbourhood_cleansed (neighborhood_price_residuals.csv)]' derivation='None' name='[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]' pivot='key' type='nominal' />
+            <column-instance column='[avg_price_residual]' derivation='Sum' name='[sum:avg_price_residual:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]'>
+            <groupfilter function='union' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Chicago&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;Dallas&quot;' />
+              <groupfilter function='member' level='[none:city:nk]' member='&quot;NYC&quot;' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]'>
+            <groupfilter count='10' end='top' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='AVG([avg_price_residual])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:avg_price_residual:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]</column>
+            <column>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:avg_price_residual:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:neighbourhood_cleansed (neighborhood_price_residuals.csv):nk]</rows>
+        <cols>[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:avg_price_residual:qk]</cols>
+      </table>
+      <simple-id uuid='{B53F9EC1-E8B3-4A90-B591-3124835D4833}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard enable-sort-zone-taborder='true' name='Cross-City Overview'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='8' param='horz' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='6' type-v2='layout-basic' w='82400' x='800' y='1000'>
+              <zone h='49000' id='3' name='Price per Person by City' w='41200' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='5' name='City Numbers' w='82400' x='800' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='10' name='Rating vs Price' w='41200' x='42000' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98000' id='7' is-fixed='true' param='vert' type-v2='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='10750' id='9' name='City Numbers' pane-specification-id='3' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' type-v2='color' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='950' minheight='950' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='12' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='11' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='49000' id='3' is-fixed='true' name='Price per Person by City' w='41200' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='10' is-fixed='true' name='Rating vs Price' w='41200' x='42000' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='5' is-fixed='true' name='City Numbers' w='82400' x='800' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='10750' id='9' name='City Numbers' pane-specification-id='3' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' type-v2='color' w='16000' x='83200' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{0998FED0-A10B-4226-8138-25DAD5E6B47E}' />
+    </dashboard>
+    <dashboard enable-sort-zone-taborder='true' name='Neighbourhood Value Map'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type-v2='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type-v2='layout-flow' w='98400' x='800' y='1000'>
+            <zone h='98000' id='5' type-v2='layout-basic' w='82400' x='800' y='1000'>
+              <zone h='98000' id='3' name='Neighbourhood Map' w='41200' x='42000' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='9' name='Top 10 Neighbourhoods' w='41200' x='800' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='49000' id='10' name='Bottom 10 Neighbourhoods' w='41200' x='800' y='50000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='98000' id='6' is-fixed='true' param='vert' type-v2='layout-flow' w='16000' x='83200' y='1000'>
+              <zone h='8125' id='8' name='Neighbourhood Map' pane-specification-id='0' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:avg_price_residual:qk]' type-v2='color' w='16000' x='83200' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='950' minheight='950' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='12' type-v2='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='11' param='vert' type-v2='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='280' h='49000' id='9' is-fixed='true' name='Top 10 Neighbourhoods' w='41200' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='98000' id='3' is-fixed='true' name='Neighbourhood Map' w='41200' x='42000' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8125' id='8' name='Neighbourhood Map' pane-specification-id='0' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:avg_price_residual:qk]' type-v2='color' w='16000' x='83200' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='49000' id='10' is-fixed='true' name='Bottom 10 Neighbourhoods' w='41200' x='800' y='50000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{C3B091A5-3A78-4984-ACA2-61260942091F}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='30'>
+    <window class='worksheet' name='Price per Person by City'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{A44D329C-2C43-4B00-8EBB-6AD429E875B2}' />
+    </window>
+    <window class='worksheet' name='Rating vs Price'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='4' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7D36B8BA-78DE-40FA-A816-5046640D42A0}' />
+    </window>
+    <window class='worksheet' name='City Numbers'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='3' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[none:city:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7D06F119-F18B-447D-95DC-D4ECD34690D3}' />
+    </window>
+    <window class='dashboard' name='Cross-City Overview'>
+      <viewpoints>
+        <viewpoint name='City Numbers' />
+        <viewpoint name='Price per Person by City'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Rating vs Price'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{D5AB70A4-F734-41F7-B36E-AB85E1456E61}' />
+    </window>
+    <window class='worksheet' name='Neighbourhood Map'>
+      <cards>
+        <edge name='left'>
+          <strip size='300'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[avg:avg_price_residual:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{7B9C88D6-28C0-4975-9EED-C77E2DB21503}' />
+    </window>
+    <window class='worksheet' name='Top 10 Neighbourhoods'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:avg_price_residual:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F6CA5D4D-34D8-47B2-BA91-AF210E7594C7}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Bottom 10 Neighbourhoods'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0xgetqc0ntlh5q1c6k5bg0c32qm8].[sum:avg_price_residual:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{480C0FA0-5AB4-49E9-8154-39BA5577DFDF}' />
+    </window>
+    <window class='dashboard' name='Neighbourhood Value Map'>
+      <viewpoints>
+        <viewpoint name='Bottom 10 Neighbourhoods' />
+        <viewpoint name='Neighbourhood Map'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Top 10 Neighbourhoods' />
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{06B143EF-5172-4601-8089-9A5EFA82069E}' />
+    </window>
+    <window class='worksheet' name='Sheet 7'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{B34A6D46-F5AD-4832-9D09-78AF30F36F96}' />
+    </window>
+  </windows>
+</workbook>

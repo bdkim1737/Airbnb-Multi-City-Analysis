@@ -9,16 +9,8 @@ clean = df[
     & df["review_scores_rating"].notna()
 ].copy()
 
-print(f"using {len(clean)} listings\n")
+print(f"using {len(clean)} listings")
 
-# quick sanity check on that Port Morris outlier from Q3 before trusting neighborhood averages
-port_morris = clean[clean["neighbourhood_cleansed"] == "Port Morris"]
-print("Port Morris listings (checking if this is a few extreme outliers):")
-print(port_morris[["price", "review_scores_rating", "value_score"]].sort_values("price"))
-print()
-
-# predict price from what the listing actually offers - if a neighborhood's
-# real prices run way above what the model predicts, that's "overpriced"
 room_dummies = pd.get_dummies(clean["room_type"], prefix="room", drop_first=True).astype(int)
 city_dummies = pd.get_dummies(clean["city"], prefix="city", drop_first=True).astype(int)
 
@@ -34,21 +26,19 @@ model = sm.OLS(y, X, missing="drop").fit()
 clean["predicted_price"] = model.predict(X)
 clean["price_residual"] = clean["price"] - clean["predicted_price"]
 
-print(f"model R-squared: {model.rsquared:.3f}\n")
+print(f"model R-squared: {model.rsquared:.3f}")
 
-# now look at where actual price runs consistently above what features justify
-print("most overpriced neighborhoods (min 10 listings):")
-for city in clean["city"].unique():
-    sub = clean[clean["city"] == city]
-    grouped = sub.groupby("neighbourhood_cleansed")["price_residual"].agg(["mean", "count"])
-    grouped = grouped[grouped["count"] >= 10].sort_values("mean", ascending=False)
-    print(f"\n{city}:")
-    print(grouped.head(5))
+# just the columns tableau actually needs to join and map this
+out = clean[["listing_id", "city", "neighbourhood_cleansed", "price", "predicted_price", "price_residual"]]
+out.to_csv("DataProcessed/listing_price_residuals.csv", index=False)
+print(f"saved listing_price_residuals.csv, {len(out)} rows")
 
-print("\nbest bang-for-buck neighborhoods (most underpriced relative to features):")
-for city in clean["city"].unique():
-    sub = clean[clean["city"] == city]
-    grouped = sub.groupby("neighbourhood_cleansed")["price_residual"].agg(["mean", "count"])
-    grouped = grouped[grouped["count"] >= 10].sort_values("mean")
-    print(f"\n{city}:")
-    print(grouped.head(5))
+# also a neighborhood-level rollup, since that's what you'll actually color the map by
+neighborhood_rollup = clean.groupby(["city", "neighbourhood_cleansed"]).agg(
+    avg_price_residual=("price_residual", "mean"),
+    listing_count=("price_residual", "count")
+).reset_index()
+neighborhood_rollup = neighborhood_rollup[neighborhood_rollup["listing_count"] >= 10]
+
+neighborhood_rollup.to_csv("DataProcessed/neighborhood_price_residuals.csv", index=False)
+print(f"saved neighborhood_price_residuals.csv, {len(neighborhood_rollup)} neighborhoods (min 10 listings each)")
