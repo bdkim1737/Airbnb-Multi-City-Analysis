@@ -7,7 +7,7 @@ I wanted to look past the marketing and see the math. Does paying more actually 
 
 #### Key Findings
 *   **Price is a terrible predictor of happiness.** Across all three cities, the link between price and guest ratings is tiny. Price only explains about 1% of why a guest leaves a good review. In short: you might get a *slightly* better stay by spending more, but it’s rarely a game-changer.
-![Price vs Rating](TableauVisuals/RatingPrice.png) ![Price per Person](TableauVisuals/PricePerPersonCity.png)
+![Price vs Rating](TableauVisuals/RatingPrice.png) 
 *   **The "Premium" Amenities:** Using a regression model, I isolated which features actually drive prices up. A gym adds the biggest premium (+\$68.76/night), followed by a washer, TV, and hot tub. Interestingly, Wifi adds almost zero value—it’s now a baseline expectation, not a luxury.
 *   **The Neighborhood Tax:** In famous areas like NYC’s Tribeca or Chicago’s Loop, you aren't paying for better features; you’re paying for the zip code. The best actual value? It’s almost always in outer-borough spots like Throgs Neck or Jamaica Estates that tourists usually overlook.
 ![HighestPriceResid](TableauVisuals/HighestPriceResid.png)![LowestPriceResid](TableauVisuals/LowestPriceResid.png)
@@ -20,7 +20,8 @@ I wanted to look past the marketing and see the math. Does paying more actually 
 ![Chicago](TableauVisuals/ChicagoNeighbourhoods.png)
 ### Dallas Neighbourhoods
 ![Dallas](TableauVisuals/DallasNeighbourhoods.png)
-*   **Dallas Wins on Value:** While satisfaction levels are nearly identical across all three cities, Dallas averages \$54.88 per person, compared to NYC’s \$83.06. You’re essentially paying 50% more in New York for the same level of happiness.
+*   **Dallas Wins on Value:** While satisfaction levels are nearly identical across all three cities, Dallas averages \$59.22 per person, compared to NYC’s \$88.60. You’re essentially paying 50% more in New York for the same level of happiness.
+![Price per Person](TableauVisuals/PricePerPersonCity.png)
 ![CityNumbers](TableauVisuals/CityNumbers.png)
 *   **The \$300 Secret:** At the \$300/night mark, "Superhost" status is the biggest indicator of a stay feeling "worth it." It matters way more than any individual physical amenity.
 
