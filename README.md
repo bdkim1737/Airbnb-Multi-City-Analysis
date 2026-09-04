@@ -23,7 +23,7 @@ Data is sourced from [Inside Airbnb](http://insideairbnb.com/get-the-data/). Bec
 - **calendar.csv** — daily availability and pricing status for every listing over a rolling year, used here as a demand proxy
 - **reviews.csv** — every individual guest review and its date, used for the sentiment analysis
 - **neighbourhoods.geojson** — the geographic boundary shapes for each city's neighborhoods, used to map listings to real neighborhood polygons
-- 
+  
 ## A Note on My Process
 
 This project actually began in Postgres with SQL since I wanted to showcase multiple skillsets. Mid-way through, however, I shifted the cleaning and analysis to Python to increase speed and keep the workflow unified. I think it's important to show that data science isn't always a straight line.
